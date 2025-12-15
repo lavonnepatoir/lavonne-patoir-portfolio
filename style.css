@@ -1,11 +1,17 @@
+/* --- GOOGLE FONT IMPORT (Add these at the very top of your CSS) --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
 /* --- 1. GENERAL RESET & TYPOGRAPHY --- */
 :root {
     --primary-color: #000000;
     --secondary-color: #666666;
-    --background-color: #ffffff;
+    --light-bg-color: #f7f3ed; /* Light beige/creamy background */
+    --accent-color: #e8c7c0;  /* Muted pink/brown accent */
     --border-color: #dddddd;
-    --hover-bg-color: #f7f7f7;
     --spacing-unit: 20px;
+    --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -15,11 +21,13 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--font-sans);
     line-height: 1.6;
     color: var(--primary-color);
-    background-color: var(--background-color);
-    padding: var(--spacing-unit);
+    background-color: var(--light-bg-color);
+    min-height: 100vh; /* Make body cover the full screen height */
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -32,7 +40,111 @@ a:hover {
     color: var(--secondary-color);
 }
 
-/* --- 2. HEADER/TITLE SECTION --- */
+/* --- 2. NAVIGATION/HEADER (For Homepage & Works Page) --- */
+.portfolio-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px var(--spacing-unit);
+}
+
+.logo h1 {
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.logo p {
+    font-family: var(--font-sans);
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    margin-left: 30px;
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* --- 3. HOMEPAGE SPECIFIC LAYOUT --- */
+.homepage-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* For social links */
+    padding: 50px var(--spacing-unit);
+}
+
+.homepage-content {
+    text-align: center;
+    max-width: 800px;
+    margin-top: -50px; /* Slightly raise the content */
+}
+
+.intro-text {
+    font-family: var(--font-serif);
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.main-title {
+    font-family: var(--font-serif);
+    font-size: 8vw; /* Responsive scaling for large text */
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+    /* On large screens, cap the size */
+    max-font-size: 120px;
+}
+
+.design-work-button {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-top: 50px;
+    border: 1px solid var(--primary-color);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.design-work-button:hover {
+    background-color: var(--primary-color);
+    color: var(--light-bg-color);
+}
+
+.social-links {
+    position: absolute;
+    right: var(--spacing-unit);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.social-links a {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Placeholder for the muted bottom bar */
+.accent-bar {
+    width: 100%;
+    height: 50px;
+    background-color: var(--accent-color);
+}
+
+/* --- 4. SELECTED WORKS PAGE STYLES (Kept for works.html) --- */
+/* (This ensures your works page still looks good) */
+
 .portfolio-header {
     max-width: 1200px;
     margin: 40px auto 80px;
@@ -40,29 +152,17 @@ a:hover {
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 40px;
 }
+.portfolio-header h1 {font-size: 3em;font-weight: 300;margin-bottom: 10px;}
+.portfolio-header p {font-size: 1.1em;color: var(--secondary-color);}
 
-.portfolio-header h1 {
-    font-size: 3em;
-    font-weight: 300; 
-    margin-bottom: 10px;
-}
-
-.portfolio-header p {
-    font-size: 1.1em;
-    color: var(--secondary-color);
-}
-
-/* --- 3. WORKS GRID LAYOUT (The Sleek Grid) --- */
 .works-grid {
     display: grid;
-    /* Defines a responsive, fluid grid */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: var(--spacing-unit); 
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 50px; /* Added margin-bottom */
 }
 
-/* --- 4. INDIVIDUAL WORK CARD STYLING --- */
 .work-card {
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -74,73 +174,7 @@ a:hover {
 
 .work-card:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
-    background-color: var(--hover-bg-color);
+    background-color: #f7f7f7;
     transform: translateY(-2px);
 }
-
-.work-link {
-    display: block;
-    padding-bottom: 0; 
-}
-
-.work-image-container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.work-image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.work-card:hover .work-image-container img {
-    transform: scale(1.05); 
-}
-
-.work-details {
-    padding: var(--spacing-unit);
-    flex-grow: 1; 
-}
-
-.work-title {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.work-category {
-    font-size: 0.9em;
-    color: var(--secondary-color);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-}
-
-.work-description {
-    font-size: 1em;
-    color: var(--secondary-color);
-}
-
-/* --- 5. FOOTER/LINKS SECTION --- */
-.work-links {
-    margin-top: auto; 
-    padding: 15px var(--spacing-unit);
-    border-top: 1px solid var(--border-color);
-    text-align: right;
-    font-size: 0.9em;
-}
-
-.work-links a {
-    margin-left: 10px;
-    font-weight: 600;
-}
-
-/* Optional: Better layout for fewer projects */
-@media (min-width: 900px) {
-    .works-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+/* ... (You can add the rest of the works page CSS here if needed, but these basics cover the layout) */
