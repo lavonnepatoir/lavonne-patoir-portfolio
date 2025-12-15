@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lavonne Patoir | Developer Portfolio</title>
+    <title>LaVonne Patoir | CompSci Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -11,12 +11,12 @@
 
     <nav class="portfolio-nav">
         <div class="logo">
-            <h1>LP</h1>
-            <p>Lavonne Patoir</p>
+            <h1></h1> 
+            <p></p>
         </div>
         <div class="nav-links">
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
             <a href="works.html">Portfolio</a> 
         </div>
     </nav>
@@ -24,20 +24,82 @@
     <main class="homepage-main">
         <div class="homepage-content">
             <p class="intro-text">I'M LAVONNE AND I'M A</p>
-            <h2 class="main-title">Developer.</h2>
+            <h2 class="main-title">
+                <span class="static-text">Developer</span>
+                <span id="typewriter-text"></span>
+                <span class="cursor">|</span>
+            </h2>
             
             <a href="works.html" class="design-work-button">View Work</a>
         </div>
 
         <div class="social-links">
-            <a href="https://www.instagram.com/lavonnepatoir" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://github.com/lavonnepatoir" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/lavonne-patoir/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </main>
 
     <div class="accent-bar"></div>
+
+    <script>
+    // --- Configuration Variables ---
+    const words = [
+        "Software Developer", 
+        "AI/ML Enthusiast",
+        "Service Professional", 
+        "Industry Trend Tracker",
+        "Python Programmer"
+    ];
+    const typingDelay = 100; // Time in milliseconds for each character to type
+    const erasingDelay = 50; // Time in milliseconds for each character to erase
+    const newWordDelay = 1100; // Time in milliseconds before starting the next word (pause)
+    
+    // --- DOM Elements ---
+    const targetElement = document.getElementById("typewriter-text");
+
+    // --- State Variables ---
+    let wordIndex = 0; // Tracks which word in the array we are on
+    let charIndex = 0; // Tracks which character in the current word we are on
+
+    // --- Main Functions ---
+
+    // 1. Types out the current word character by character
+    function type() {
+        if (charIndex < words[wordIndex].length) {
+            targetElement.textContent += words[wordIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            // Finished typing word, wait before erasing
+            setTimeout(erase, newWordDelay);
+        }
+    }
+
+    // 2. Erases the current word character by character
+    function erase() {
+        if (charIndex > 0) {
+            targetElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            // Finished erasing word, move to next word
+            wordIndex++;
+            if (wordIndex >= words.length) {
+                wordIndex = 0; // Loop back to the first word
+            }
+            setTimeout(type, typingDelay); // Start typing the next word
+        }
+    }
+
+    // 3. Start the entire sequence when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+        // Since we removed the static text, we start typing immediately
+        if (words.length) {
+            setTimeout(type, newWordDelay); // Initial delay before the first word appears
+        }
+    });
+
+</script>
 
 </body>
 </html>

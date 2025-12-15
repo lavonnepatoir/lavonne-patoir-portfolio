@@ -177,4 +177,203 @@ a:hover {
     background-color: #f7f7f7;
     transform: translateY(-2px);
 }
-/* ... (You can add the rest of the works page CSS here if needed, but these basics cover the layout) */
+
+/* --- TYPEWRITER EFFECT STYLES --- */
+
+/* Ensure the blinking cursor is visible and uses a serif font */
+.main-title .cursor {
+    display: inline-block;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    font-weight: 300;
+    margin-left: 5px;
+    /* Animation for the blinking effect */
+    animation: blink 0.8s infinite;
+}
+
+/* The actual blinking animation */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Hide the static 'Developer' text since the JS will manage the full word */
+.main-title .static-text {
+    display: none; 
+}
+
+.about-section {
+    max-width: 1400px;
+    width: 100%;
+    margin: 50px auto 80px;
+    padding: 0 var(--spacing-unit);
+    flex-grow: 1;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile view: single column */
+    gap: 60px;
+}
+
+@media (min-width: 900px) {
+    .about-grid {
+        /* Desktop view: Image takes 40%, Narrative takes 60% */
+        grid-template-columns: 0.4fr 0.6fr; 
+    }
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Slight rounding for a modern touch */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.narrative-content {
+    padding-top: 20px;
+}
+
+.greeting-text {
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.intro-paragraph {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+}
+
+.split-content {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.subsection-title {
+    font-family: var(--font-serif);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 5px;
+}
+
+.split-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.split-content li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-link:hover {
+    color: var(--accent-color);
+}
+
+.contact-section {
+    max-width: 900px;
+    margin: 50px auto 80px;
+    padding: 0 var(--spacing-unit);
+    flex-grow: 1;
+    text-align: center;
+}
+
+.contact-header {
+    margin-bottom: 50px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+@media (min-width: 600px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-info h3, .contact-form-container h3 {
+    font-family: var(--font-serif);
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    font-family: var(--font-sans);
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: var(--light-bg-color);
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.form-note {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 10px;
+}
