@@ -1,0 +1,146 @@
+/* --- 1. GENERAL RESET & TYPOGRAPHY --- */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #666666;
+    --background-color: #ffffff;
+    --border-color: #dddddd;
+    --hover-bg-color: #f7f7f7;
+    --spacing-unit: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    padding: var(--spacing-unit);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- 2. HEADER/TITLE SECTION --- */
+.portfolio-header {
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 40px;
+}
+
+.portfolio-header h1 {
+    font-size: 3em;
+    font-weight: 300; 
+    margin-bottom: 10px;
+}
+
+.portfolio-header p {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+}
+
+/* --- 3. WORKS GRID LAYOUT (The Sleek Grid) --- */
+.works-grid {
+    display: grid;
+    /* Defines a responsive, fluid grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: var(--spacing-unit); 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 4. INDIVIDUAL WORK CARD STYLING --- */
+.work-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.work-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    background-color: var(--hover-bg-color);
+    transform: translateY(-2px);
+}
+
+.work-link {
+    display: block;
+    padding-bottom: 0; 
+}
+
+.work-image-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.work-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.work-card:hover .work-image-container img {
+    transform: scale(1.05); 
+}
+
+.work-details {
+    padding: var(--spacing-unit);
+    flex-grow: 1; 
+}
+
+.work-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.work-category {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.work-description {
+    font-size: 1em;
+    color: var(--secondary-color);
+}
+
+/* --- 5. FOOTER/LINKS SECTION --- */
+.work-links {
+    margin-top: auto; 
+    padding: 15px var(--spacing-unit);
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.work-links a {
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+/* Optional: Better layout for fewer projects */
+@media (min-width: 900px) {
+    .works-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
