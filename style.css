@@ -178,6 +178,27 @@ a:hover {
     transform: translateY(-2px);
 }
 
+.work-image-container {
+    width: 100%;
+    height: auto;
+    /* Ensure images cover the area and crop if necessary */
+    overflow: hidden;
+    /* ADDED: Use Flexbox to center the content horizontally */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.work-image-container img {
+    /* REMOVED: width: 100%; (If the image is smaller than the container, we want it to sit naturally) */
+    /* If the image is meant to span the full width, keep width: 100%;. 
+       If you want smaller images centered, use max-width: 100%; */
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
 /* --- TYPEWRITER EFFECT STYLES --- */
 
 /* Ensure the blinking cursor is visible and uses a serif font */
