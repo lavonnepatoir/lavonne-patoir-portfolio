@@ -216,18 +216,30 @@ a:hover {
     gap: 60px;
 }
 
+/* Restrict the image container width on large screens */
 @media (min-width: 900px) {
     .about-grid {
-        /* Desktop view: Image takes 40%, Narrative takes 60% */
-        grid-template-columns: 0.4fr 0.6fr; 
+        /* CHANGED: Image column size reduced from 0.4fr to 0.3fr */
+        grid-template-columns: 0.3fr 0.7fr; 
     }
 }
 
+.image-container {
+    /* Optional: Center the image vertically in its column */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns to the top */
+}
+
 .image-container img {
-    width: 100%;
-    height: auto;
+    /* Set a max size for the image to prevent it from getting too big */
+    max-width: 100%;
+    /* ADDED: Set a fixed size for a consistent, contained look */
+    width: 250px; 
+    height: 250px; 
+    object-fit: cover; /* Ensures the image fills the 250x250 container without stretching */
     display: block;
-    border-radius: 8px; /* Slight rounding for a modern touch */
+    border-radius: 50%; /* Make the image perfectly round */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
