@@ -410,3 +410,20 @@ a:hover {
     color: #999;
     margin-top: 10px;
 }
+
+.resume-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjusts height to fit within the viewport under the nav */
+    padding: 20px;
+}
+
+.resume-pdf {
+    width: 80vh;  /* Sets width equal to the relative height to keep it square */
+    height: 80vh; 
+    max-width: 95%; /* Ensures it doesn't overflow on smaller screens */
+    max-height: 95%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
