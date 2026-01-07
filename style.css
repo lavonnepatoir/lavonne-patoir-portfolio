@@ -1,8 +1,5 @@
-/* --- GOOGLE FONT IMPORT (Add these at the very top of your CSS) --- */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-
-/* --- 1. GENERAL RESET & TYPOGRAPHY --- */
 :root {
     --primary-color: #000000;
     --secondary-color: #666666;
@@ -40,7 +37,6 @@ a:hover {
     color: var(--secondary-color);
 }
 
-/* --- 2. NAVIGATION/HEADER (For Homepage & Works Page) --- */
 .portfolio-nav {
     display: flex;
     justify-content: space-between;
@@ -72,7 +68,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-/* --- 3. HOMEPAGE SPECIFIC LAYOUT --- */
 .homepage-main {
     flex-grow: 1;
     display: flex;
@@ -85,7 +80,7 @@ a:hover {
 .homepage-content {
     text-align: center;
     max-width: 800px;
-    margin-top: -50px; /* Slightly raise the content */
+    margin-top: -50px; 
 }
 
 .intro-text {
@@ -97,11 +92,11 @@ a:hover {
 
 .main-title {
     font-family: var(--font-serif);
-    font-size: 8vw; /* Responsive scaling for large text */
+    font-size: 8vw; /* Responsive scaling*/
     font-weight: 400;
     line-height: 1;
     margin: 0;
-    /* On large screens, cap the size */
+    /* cap the size */
     max-font-size: 120px;
 }
 
@@ -135,15 +130,12 @@ a:hover {
     font-size: 1.2em;
 }
 
-/* Placeholder for the muted bottom bar */
+/* Placeholder*/
 .accent-bar {
     width: 100%;
     height: 50px;
     background-color: var(--accent-color);
 }
-
-/* --- 4. SELECTED WORKS PAGE STYLES (Kept for works.html) --- */
-/* (This ensures your works page still looks good) */
 
 .portfolio-header {
     max-width: 1200px;
@@ -160,7 +152,7 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: var(--spacing-unit); 
     max-width: 1200px;
-    margin: 0 auto 50px; /* Added margin-bottom */
+    margin: 0 auto 50px; /*margin-bottom */
 }
 
 .work-card {
@@ -181,44 +173,36 @@ a:hover {
 .work-image-container {
     width: 100%;
     height: auto;
-    /* Ensure images cover the area and crop if necessary */
     overflow: hidden;
-    /* ADDED: Use Flexbox to center the content horizontally */
     display: flex; 
     justify-content: center;
     align-items: center;
 }
 
 .work-image-container img {
-    /* REMOVED: width: 100%; (If the image is smaller than the container, we want it to sit naturally) */
-    /* If the image is meant to span the full width, keep width: 100%;. 
-       If you want smaller images centered, use max-width: 100%; */
+    /* If full width, keep width: 100%;. 
+       If smaller images centered, use max-width: 100%; */
     max-width: 100%; 
     height: auto;
     display: block;
     transition: transform 0.5s ease;
 }
 
-/* --- TYPEWRITER EFFECT STYLES --- */
-
-/* Ensure the blinking cursor is visible and uses a serif font */
 .main-title .cursor {
     display: inline-block;
     color: var(--primary-color);
     font-size: 1.1em;
     font-weight: 300;
     margin-left: 5px;
-    /* Animation for the blinking effect */
+    /*blinking effect */
     animation: blink 0.8s infinite;
 }
 
-/* The actual blinking animation */
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 
-/* Hide the static 'Developer' text since the JS will manage the full word */
 .main-title .static-text {
     display: none; 
 }
@@ -237,30 +221,27 @@ a:hover {
     gap: 60px;
 }
 
-/* Restrict the image container width on large screens */
+/* Restrict image container width on large screens */
 @media (min-width: 900px) {
     .about-grid {
-        /* CHANGED: Image column size reduced from 0.4fr to 0.3fr */
         grid-template-columns: 0.3fr 0.7fr; 
     }
 }
 
 .image-container {
-    /* Optional: Center the image vertically in its column */
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Aligns to the top */
+    align-items: flex-start;
 }
 
 .image-container img {
-    /* Set a max size for the image to prevent it from getting too big */
+    /* Set a max size for image to prevent it from getting too big */
     max-width: 100%;
-    /* ADDED: Set a fixed size for a consistent, contained look */
     width: 250px; 
     height: 250px; 
-    object-fit: cover; /* Ensures the image fills the 250x250 container without stretching */
+    object-fit: cover;
     display: block;
-    border-radius: 50%; /* Make the image perfectly round */
+    border-radius: 50%;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -415,14 +396,14 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* Adjusts height to fit within the viewport under the nav */
+    height: 80vh;
     padding: 20px;
 }
 
 .resume-pdf {
-    width: 80vh;  /* Sets width equal to the relative height to keep it square */
+    width: 80vh;  /* Sets width equal to the relative height */
     height: 80vh; 
-    max-width: 95%; /* Ensures it doesn't overflow on smaller screens */
+    max-width: 95%; /* no overflow on smaller screens */
     max-height: 95%;
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
